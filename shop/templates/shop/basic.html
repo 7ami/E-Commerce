@@ -7,16 +7,54 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-
+    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
     <title>{% block title%} {% endblock %}</title>
+    <style>
+      a.navbar-brand {
+          font-family: 'Lobster', cursive;
+          color: aliceblue;
+      }
+
+      .custom-nav {
+          background-color: rgb(30, 77, 3);
+      }
+
+      .custom-dropdown button {
+          background-color: rgb(30, 77, 3);
+          color: aliceblue;
+      }
+
+      .custom-dropdown button:hover {
+          color: aliceblue;
+          background-color: rgb(27, 65, 5);
+          ;
+      }
+
+      img {
+          display: block;
+          max-width: 100%;
+          height: auto;
+      }
+
+          {
+          % block style %
+      }
+
+          { % endblock %}
+  </style>
       <style>
          {% block css%} {% endblock %}
   </style>
   </head>
   <body>
 
+<<<<<<< HEAD
     <nav class="navbar navbar-expand-lg navbar-blue bg-dark">
   <a class="navbar-brand" href="#">Green Nett</a>
+=======
+    <nav class="navbar navbar-expand-lg custom-nav">
+  <a class="navbar-brand" href="#">GreenNett</a>
+>>>>>>> 27194c8a95e9d9096547902fb2bbc0643e470559
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
