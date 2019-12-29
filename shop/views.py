@@ -4,6 +4,10 @@ from .models import Product, Contact, Checkout
 from math import ceil
 
 
+def home(request):
+    return render(request, 'shop/home.html')
+
+
 def index(request):
     everyprod = []
     catprods = Product.objects.values('category', 'id')
