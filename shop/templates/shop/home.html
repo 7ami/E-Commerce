@@ -1,7 +1,95 @@
 {% extends 'shop/basic.html' %}
-
+{%load static%}
 {% block title%} HOME{% endblock %}
-{% block body%}  <header class="masthead text-center text-white ">
+{%block css%}
+    header.masthead {
+        position: relative;
+        overflow: hidden;
+        padding-top: calc(7rem + 72px);
+        padding-bottom: 7rem;
+        background: linear-gradient(to bottom, rgba(22, 22, 22, 0.3) 0%, rgba(22, 22, 22, 0.7) 75%, #161616 100%), url("../static/shop/beautiful.jpg");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: scroll;
+        background-size: cover;
+      }
+      
+      header.masthead .masthead-content {
+        z-index: 1;
+        position: relative;
+      }
+      
+      header.masthead .masthead-content .masthead-heading {
+        font-size: 4rem;
+      }
+      
+      header.masthead .masthead-content .masthead-subheading {
+        font-size: 2rem;
+      }
+      
+      header.masthead .bg-circle {
+        z-index: 0;
+        position: absolute;
+        border-radius: 100%;
+        background: linear-gradient(0deg, rgb(30, 77, 3) 0%, #1eff00de 100%);
+      }
+      
+      
+      @media (min-width: 992px) {
+        header.masthead {
+          padding-top: calc(10rem + 55px);
+          padding-bottom: 10rem;
+        }
+        header.masthead .masthead-content .masthead-heading {
+          font-size: 6rem;
+        }
+        header.masthead .masthead-content .masthead-subheading {
+          font-size: 4rem;
+        }
+      }
+      
+      .bg-primary {
+        background-color: rgb(30, 77, 3) !important;
+      }
+      
+      .btn-primary {
+        background-color: rgb(30, 77, 3);
+        border-color: rgb(30, 77, 3);
+      }
+      
+      .btn-primary:active, .btn-primary:focus, .btn-primary:hover {
+        background-color: #bd0760 !important;
+        border-color: #bd0760 !important;
+      }
+      .about-section {
+        padding-top: 10rem;
+        background: linear-gradient(to bottom, #1b2517 0%, rgba(34, 48, 31, 0.9) 75%, rgba(22, 22, 22, 0.8) 100%);
+      }
+      
+      .about-section p {
+        margin-bottom: 5rem;
+      }
+      
+      .btn-primary:focus {
+        box-shadow: 0 0 0 0.2rem rgba(238, 9, 121, 0.5);
+      }
+      
+      .btn-secondary {
+        background-color: #ff6a00;
+        border-color: #ff6a00;
+      }
+      
+      .btn-secondary:active, .btn-secondary:focus, .btn-secondary:hover {
+        background-color: #cc5500 !important;
+        border-color: #cc5500 !important;
+      }
+      
+      .btn-secondary:focus {
+        box-shadow: 0 0 0 0.2rem rgba(255, 106, 0, 0.5);
+      }
+{%endblock%}
+{% block body%}  
+<header class="masthead text-center text-white ">
     <div class="masthead-content">
       <div class="container">
         <h1 class="masthead-heading mb-0">Nature Wonder</h1>
@@ -16,7 +104,7 @@
       <div class="row align-items-center">
         <div class="col-lg-6 order-lg-2">
           <div class="p-5">
-            <img class="img-fluid rounded-circle" src="{% static "img/Allo.jpg" %}" alt="">
+            <img class="img-fluid rounded-circle" src="{% static "shop/Allo.jpg" %}" alt="">
           </div>
         </div>
         <div class="col-lg-6 order-lg-1">
@@ -34,7 +122,7 @@
       <div class="row align-items-center">
         <div class="col-lg-6">
           <div class="p-5">
-            <img class="img-fluid rounded-circle" src="{% static "img/saaal.jpg" %}" alt="">
+            <img class="img-fluid rounded-circle" src="{% static "shop/saaal.jpg" %}" alt="">
           </div>
         </div>
         <div class="col-lg-6">
