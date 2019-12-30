@@ -10,14 +10,14 @@
           margin-left:-4px;
           }
           .carousel-indicators .active {
-          background-color: green;
+          background-color: white;
             }
           .col-md-3 img{
           width:165px;
           height:200px;
           }
           body .carousel-indicator li{
-          background-color: green;
+          background-color: white;
           }
           body .carousel-indicators{
           bottom: 0;
@@ -47,13 +47,13 @@
      <!--Slideshow starts here -->
     {% for product,range,nSlides in allProds  %}
     <h4 class="my-4">{{product.0.category}}-Recommended Items</h4>
-    <div class="row">
-    <div id="demo{{forloop.counter}}" class="col carousel slide my-3" data-ride="carousel">
+  <div class="row">
+   <div id="demo{{forloop.counter}}" class="col-xs col-sm col-md carousel slide my-2" data-ride="carousel">
     <ul class="carousel-indicators">
       <li data-target="#demo{{forloop.counter}}" data-slide-to="0" class="active"></li>
 
          {% for i in range %}
-        <li data-target="#demo{{forloop.parentloop.counter}}" data-slide-to="1" ></li>
+        <li data-target="#demo{{forloop.parentloop.counter}}" data-slide-to="{{i}}" ></li>
          {% endfor %}
     </ul>
 
@@ -79,7 +79,7 @@
            {% endif %}
           {% endfor %}
     </div>
-    </div>
+  </div>
 </div>
 
 
@@ -91,7 +91,7 @@
         <span class="carousel-control-next-icon"></span>
     </a>
     <br>
-    </div>
+    </div>  <!--row ko-->
      {% endfor %}
 </div>
 {% endblock %}
