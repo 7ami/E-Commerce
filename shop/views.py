@@ -55,6 +55,7 @@ def search(request):
 
 
 def productview(request, myid):
+    # django automatically takes id iff nott mentioned primary key
     product = Product.objects.filter(id=myid)
 
     return render(request, 'shop/ProductView.html', {'product': product[0]})
