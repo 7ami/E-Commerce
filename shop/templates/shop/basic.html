@@ -134,6 +134,7 @@ var sum = 0;
 for(var item in cart){
 sum = sum +cart[item]
 }
+//update so that useavle in other pages
 localStorage.setItem('cart',JSON.stringify(cart));
 document.getElementById('cart').innerHTML = sum;
 }
