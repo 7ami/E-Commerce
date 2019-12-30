@@ -115,6 +115,7 @@ if(localStorage.getItem('cart') == null){
 cart = JSON.parse(localStorage.getItem('cart'));
 document.getElementById('cart').innerHTML = Object.keys(cart).length;
 Update(cart);
+updcart(cart);
 }
 $('.cart').click(function(){
 var idstr = this.id.toString();
@@ -138,9 +139,20 @@ sum = sum +cart[item]
 localStorage.setItem('cart',JSON.stringify(cart));
 document.getElementById('cart').innerHTML = sum;
 }
-
+//Add popover to cart
 $('#popcart').popover()
 document.getElementById("popcart").setAttribute('data-content','<h5>Cart for your items in the Shop</h5>');
+
+//+ 5- ->UI
+function updcart(cart){
+   for(var k in cart){
+    document.getElementById("div"+k).innerHTML = "<button id='minus" + k + "' class='btn btn-primary minus'>-</button> <span id='val" + k + "''>" + cart[k] + "</span> <button id='plus" + k + "' class='btn btn-primary plus'> + </button>";
+    }
+
+
+
+}
+
 </script>
 
 {% endblock %}
