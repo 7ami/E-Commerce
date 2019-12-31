@@ -107,53 +107,118 @@ sagittis lacus vel augue laoreet rutrum faucibus.">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
 {% block js%}
+
+
 <script>
 if(localStorage.getItem('cart') == null){
      var cart = {};
 }else
 {
+
 cart = JSON.parse(localStorage.getItem('cart'));
 document.getElementById('cart').innerHTML = Object.keys(cart).length;
-Update(cart);
 updcart(cart);
 }
 $('.cart').click(function(){
 var idstr = this.id.toString();
 if( cart[idstr] != undefined){
-cart[idstr]+=1;
+cart[idstr]=card[idstr]+1;
 }
 else
 {
 cart[idstr] =1;
 }
-Update(cart);
+updcart(cart);
+});
+//popover to cart
+$('#popcart').popover();
+updpopover(cart);
+
+//working on popover
+function updpopover(cart)
+{
+   console.log("Ranabhat was here");
+   var str = "";
+   str = str + "<h5>Items in your Cart!</h5><div class='mx-2 my-2'>";
+   var z=1;
+   for(var item in cart)
+   {
+     str = str +"<b>"+z+"</b>";
+     str = str + document.getElementById('name'+item).innerHTML.slice(0,15) + "...Qty:" + cart[item] +'<br>';
+     z=z+1;
+   }   
+   str = str + "</div>"
+   document.getElementById('popcart').setAttribute('data-content',str);
+   $('#popcart').popover('show');
+
 
 }
-);
-function Update(cart){
-var sum = 0;
-for(var item in cart){
-sum = sum +cart[item]
-}
-//update so that useavle in other pages
-localStorage.setItem('cart',JSON.stringify(cart));
-document.getElementById('cart').innerHTML = sum;
-}
-//Add popover to cart
-$('#popcart').popover()
-document.getElementById("popcart").setAttribute('data-content','<h5>Cart for your items in the Shop</h5>');
 
 //+ 5- ->UI
 function updcart(cart){
+   var sum =0;
    for(var k in cart){
-    document.getElementById("div"+k).innerHTML = "<button id='minus" + k + "' class='btn btn-primary minus'>-</button> <span id='val" + k + "''>" + cart[k] + "</span> <button id='plus" + k + "' class='btn btn-primary plus'> + </button>";
+     sum =sum + cart[k];
+    document.getElementById('div'+ k).innerHTML = "<button id='minus" + k + "' class='btn btn-success minus'>-</button> <span id='val" + k + "''>" + cart[k] + "</span> <button id='plus" + k + "' class='btn btn-success plus'> + </button>";
     }
+    localStorage.setItem('cart',JSON.stringify(cart));
+    document.getElementById('cart').innerHTML = sum;
+     updpopover(cart);
+}
 
+
+//working on plus minus button
+$('.divpr').on("click","button.minus",function(){
+console.log("minus clicked");
+ //id gives minusprK
+ k=this.id.slice(5,);
+ console.log(k);
+ cart[k]=cart[k]-1;
+ cart[k]=Math.max(0,cart[k]);
+ document.getElementById('val'+k).innerHTML=cart[k];
+ updcart(cart);
+}
+);
+
+
+
+//working on plus plus button
+$('.divpr').on("click","button.plus",function(){
+console.log("plus clicked");
+//id gives plusprq
+q=this.id.slice(5,);
+ console.log(q);
+ cart[q]=cart[q]+1;
+ document.getElementById('val'+q).innerHTML=cart[q];
+ updcart(cart);
+
+});
+
+
+//working on popover
+function updpopover(cart)
+{
+   console.log("Ranabhat was here");
+   var str = "";
+   str = str + "<h5>Items in your Cart!</h5><div class='mx-2 my-2'>";
+   var z=1;
+   for(var item in cart)
+   {
+     str = str +"<b>"+z+"</b>";
+     str = str + document.getElementById('name'+item).innerHTML.slice(0,15) + "...Qty:" + cart[item] +'<br>';
+     z=z+1;
+   }   
+   str = str + "</div>"
+   document.getElementById("popcart").setAttribute('data-content',str);
+  $('#popcart').popover('show');
 
 
 }
 
+
+
 </script>
+
 
 {% endblock %}
 

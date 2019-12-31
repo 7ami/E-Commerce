@@ -67,9 +67,9 @@
           <div class="card align-items-center" style="width: 18rem;">
             <img src='/media/{{i.img}}' class="card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title">{{i.name}}</h5>
+              <h5 class="card-title" id="namepr{{i.id}}">{{i.name}}</h5>
               <p class="card-text">{{i.desc|slice:"0:20"}}...</p>
-                 <span id="divpr{{i.id}}">
+                 <span id="divpr{{i.id}}" class ="divpr">
                 <button id="pr{{i.id}}" class="btn btn-success cart"> Add To Cart</button>
                  </span>
             <a href="/shop/product/{{i.id}}"><button id="qv{{i.id}}" class="btn btn-success cart mx-2">QuickView</button></a>
@@ -97,6 +97,10 @@
      {% endfor %}
 </div>
 {% endblock %}
+
+
+
+
 
 
 
