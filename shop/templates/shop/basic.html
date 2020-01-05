@@ -184,9 +184,10 @@ if(localStorage.getItem('cart') == null){
 }else
 {
   cart = JSON.parse(localStorage.getItem('cart'));
-  document.getElementById('cart').innerHTML = Object.keys(cart).length;
+  //document.getElementById('cart').innerHTML = Object.keys(cart).length;
   updcart(cart);
 }
+//$('.cart').click(function(){
 $('.divpr').on('click', 'button.cart', function(){
 var idstr = this.id.toString();
 if( cart[idstr] != undefined){

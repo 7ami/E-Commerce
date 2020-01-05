@@ -1,8 +1,9 @@
 from django.contrib import admin
-
-# Register your models here.
+from import_export.admin import ImportExportModelAdmin
 from .models import Product
-from .models import Contact,Checkout
-admin.site.register(Product)
-admin.site.register(Contact)
-admin.site.register(Checkout)
+from .models import Contact, Checkout
+
+
+@admin.register(Product, Contact, Checkout)
+class ViewAdmin(ImportExportModelAdmin):
+    pass
